@@ -6,7 +6,7 @@
 %web_drop_table(MIS480L.DATA);
 
 
-FILENAME REFFILE '/folders/myfolders/MIS480F/cleandata.csv';
+FILENAME REFFILE '/folders/myfolders/MIS480F/cleandata_withoutstate.csv';
 
 PROC IMPORT DATAFILE=REFFILE
 	DBMS=CSV
