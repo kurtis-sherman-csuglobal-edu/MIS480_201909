@@ -1,0 +1,2492 @@
+<!DOCTYPE html>
+<html class="ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032" lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8"/>
+<meta content="SAS 9.4" name="generator"/>
+<title>Results: Data Exploration Death Count by Hospital.sas</title>
+<style>
+/*<![CDATA[*/
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .body.c section > table, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .body.c section > pre, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .body.c div > table,
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .body.c div > pre, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .body.c article > table, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .body.c article > pre,
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .body.j section > table, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .body.j section > pre, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .body.j div > table,
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .body.j div > pre, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .body.j article > table, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .body.j article > pre,
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .body.c p.note, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .body.c p.warning, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .body.c p.error, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .body.c p.fatal,
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .body.j p.note, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .body.j p.warning, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .body.j p.error, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .body.j p.fatal,
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .body.c > table.layoutcontainer, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .body.j > table.layoutcontainer { margin-left: auto; margin-right: auto }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .layoutregion.l table, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .layoutregion.l pre, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .layoutregion.l p.note,
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .layoutregion.l p.warning, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .layoutregion.l p.error, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .layoutregion.l p.fatal { margin-left: 0 }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .layoutregion.c table, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .layoutregion.c pre, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .layoutregion.c p.note,
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .layoutregion.c p.warning, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .layoutregion.c p.error, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .layoutregion.c p.fatal { margin-left: auto; margin-right: auto }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .layoutregion.r table, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .layoutregion.r pre, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .layoutregion.r p.note,
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .layoutregion.r table, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .layoutregion.r pre, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .layoutregion.r p.note,
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .layoutregion.r p.warning, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .layoutregion.r p.error, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .layoutregion.r p.fatal { margin-right: 0 }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 article, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 aside, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 details, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 figcaption, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 figure, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 footer, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 header, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 hgroup, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 nav, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 section { display: block }
+html.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 { font-size: 100% }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .body { margin: 1em; font-size: 13px; line-height: 1.231 }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 sup { position: relative; vertical-align: baseline; bottom: 0.25em; font-size: 0.8em }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 sub { position: relative; vertical-align: baseline; top: 0.25em; font-size: 0.8em }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 ul, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 ol { margin: 1em 0; padding: 0 0 0 40px }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 dd { margin: 0 0 0 40px }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 nav ul, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0 }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 img { border: 0; vertical-align: middle }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 svg:not(:root) { overflow: hidden }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 figure { margin: 0 }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 table { border-collapse: collapse; border-spacing: 0 }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .layoutcontainer { border-collapse: separate; border-spacing: 0 }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 p { margin-top: 0; text-align: left }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 h1.heading1 { text-align: left }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 h2.heading2 { text-align: left }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 h3.heading3 { text-align: left }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 h4.heading4 { text-align: left }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 h5.heading5 { text-align: left }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 h6.heading6 { text-align: left }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 span { text-align: left }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 table { margin-bottom: 1em }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 td, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 th { text-align: left; padding: 3px 6px; vertical-align: top }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 td[class$="fixed"], .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 th[class$="fixed"] { white-space: pre }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 section, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 article { padding-top: 1px; padding-bottom: 8px }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 hr.pagebreak { height: 0px; border: 0; border-bottom: 1px solid #c0c0c0; margin: 1em 0 }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .stacked-value { text-align: left; display: block }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .stacked-cell > .stacked-value, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 td.data > td.data, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 th.data > td.data, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 th.data > th.data, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 td.data > th.data, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 th.header > th.header { border: 0 }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .stacked-cell > div.data { border-width: 0 }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .systitleandfootercontainer { white-space: nowrap; margin-bottom: 1em }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .systitleandfootercontainer > p { margin: 0 }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .systitleandfootercontainer > p > span { display: inline-block; width: 100%; white-space: normal }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .batch { display: table }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .toc { display: none }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .proc_note_group, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .proc_title_group { margin-bottom: 1em }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 p.proctitle { margin: 0 }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 p.note, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 p.warning, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 p.error, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 p.fatal { display: table }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .notebanner, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .warnbanner, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .errorbanner, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .fatalbanner,
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .notecontent, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .warncontent, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .errorcontent, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .fatalcontent { display: table-cell; padding: 0.5em }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .notebanner, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .warnbanner, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .errorbanner, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .fatalbanner { padding-right: 0 }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .body > div > ol li { text-align: left }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .beforecaption > h4 { margin-top: 0; margin-bottom: 0 }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .c { text-align: center }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .r { text-align: right }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .l { text-align: left }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .j { text-align: justify }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .d { text-align: right }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .b { vertical-align: bottom }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .m { vertical-align: middle }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .t { vertical-align: top }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .accessiblecaption {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 a:active { color: #800080 }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .aftercaption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    padding-top: 4pt;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .batch > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .batch > tbody, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .batch > thead, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .batch > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .batch { border: hidden; }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .batch {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: 'SAS Monospace', 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    padding: 7px;
+    }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .beforecaption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .body {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .bodydate {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    text-align: right;
+    vertical-align: top;
+    width: 100%;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .bycontentfolder {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .byline {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .bylinecontainer > col, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .bylinecontainer > colgroup > col, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .bylinecontainer > colgroup, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .bylinecontainer > tr, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .bylinecontainer > * > tr, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .bylinecontainer > thead, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .bylinecontainer > tbody, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .bylinecontainer > tfoot { border: none; }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .bylinecontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .caption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .cell, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .container {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .contentfolder, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .contentitem {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .contentproclabel, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .contentprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .contents {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: decimal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .contentsdate {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .contenttitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .continued {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    width: 100%;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .data, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .dataemphasis {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .dataemphasisfixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .dataempty {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .datafixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .datastrong {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .datastrongfixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .date {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .document {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .errorbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .errorcontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .errorcontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .extendedpage {
+    background-color: #fafbfe;
+    border-style: solid;
+    border-width: 1pt;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+    text-align: center;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .fatalbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .fatalcontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .fatalcontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .folderaction {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .footer {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .footeremphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .footeremphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .footerempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .footerfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .footerstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .footerstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .frame {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .graph > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .graph > tbody, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .graph > thead, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .graph > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .graph { border: hidden; }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .graph {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .header {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .headeremphasis {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .headeremphasisfixed {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .headerempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .headerfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .headersandfooters {
+    background-color: #edf2f9;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .headerstrong {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .headerstrongfixed {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .heading1, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .heading2, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .heading3, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .heading4, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .heading5, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .heading6 { font-family: Arial, Helvetica, sans-serif }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .index {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .indexaction, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .indexitem {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .indexprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .indextitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .layoutcontainer, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .layoutregion {
+    border-width: 0;
+    border-spacing: 30px;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .linecontent {
+    background-color: #fafbfe;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 a:link { color: #0000ff }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .list {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: disc;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .list10 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .list2 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: circle;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .list3, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .list4, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .list5, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .list6, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .list7, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .list8, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .list9 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .listitem {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: disc;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .listitem10 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .listitem2 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: circle;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .listitem3, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .listitem4, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .listitem5, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .listitem6, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .listitem7, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .listitem8, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .listitem9 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .note {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .notebanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .notecontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .notecontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .output > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .output > tbody, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .output > thead, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .output > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .output { border: hidden; }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .output {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .pageno {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    text-align: right;
+    vertical-align: top;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .pages {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: decimal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .pagesdate {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .pagesitem {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .pagesproclabel, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .pagesprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .pagestitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .paragraph {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .parskip > col, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .parskip > colgroup > col, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .parskip > colgroup, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .parskip > tr, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .parskip > * > tr, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .parskip > thead, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .parskip > tbody, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .parskip > tfoot { border: none; }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .parskip {
+    border: none;
+    border-spacing: 0;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .prepage {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    text-align: left;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .proctitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .proctitlefixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .rowfooter {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .rowfooteremphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .rowfooteremphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .rowfooterempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .rowfooterfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .rowfooterstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .rowfooterstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .rowheader {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .rowheaderemphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .rowheaderemphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .rowheaderempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .rowheaderfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .rowheaderstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .rowheaderstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .systemfooter, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .systemfooter10, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .systemfooter2, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .systemfooter3, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .systemfooter4, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .systemfooter5, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .systemfooter6, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .systemfooter7, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .systemfooter8, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .systemfooter9 {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .systemtitle, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .systemtitle10, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .systemtitle2, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .systemtitle3, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .systemtitle4, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .systemtitle5, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .systemtitle6, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .systemtitle7, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .systemtitle8, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .systemtitle9 {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .systitleandfootercontainer > col, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .systitleandfootercontainer > colgroup > col, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .systitleandfootercontainer > colgroup, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .systitleandfootercontainer > tr, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .systitleandfootercontainer > * > tr, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .systitleandfootercontainer > thead, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .systitleandfootercontainer > tbody, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .systitleandfootercontainer > tfoot { border: none; }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .systitleandfootercontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .table > col, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .table > colgroup > col {
+    border-left: 1px solid #c1c1c1;
+    border-right: 0 solid #c1c1c1;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .table > tr, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .table > * > tr {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 0 solid #c1c1c1;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .table { border: hidden; }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .table {
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 1px 0 0 1px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .titleandnotecontainer > col, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .titleandnotecontainer > colgroup > col, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .titleandnotecontainer > colgroup, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .titleandnotecontainer > tr, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .titleandnotecontainer > * > tr, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .titleandnotecontainer > thead, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .titleandnotecontainer > tbody, .ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .titleandnotecontainer > tfoot { border: none; }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .titleandnotecontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .titlesandfooters {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .usertext {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 a:visited { color: #800080 }
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .warnbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .warncontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032 .warncontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+/*]]>*/
+</style>
+</head>
+<body class="body">
+<div id="div_d4fcfd1b-34c6-4e98-b1db-5db7f93eb032" class="c body">
+<h1 class="body toc">Results: Data Exploration Death Count by Hospital.sas</h1>
+<section data-name="Print" data-sec-type="proc">
+<h1 class="contentprocname toc">The Print Procedure</h1>
+<article id="IDX" aria-label="Data Set WORK.MEANS_STATS0004">
+<h1 class="contentitem toc">Data Set WORK.MEANS_STATS0004</h1>
+<table class="table" style="border-spacing: 0" aria-label="Data Set WORK.MEANS_STATS0004">
+<caption aria-label="Data Set WORK.MEANS_STATS0004"></caption>
+<colgroup><col/></colgroup><colgroup><col/><col/><col/><col/><col/><col/><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="r header" scope="col">Obs</th>
+<th class="header" scope="col">hospital</th>
+<th class="header" scope="col">_TYPE_</th>
+<th class="r header" scope="col">_FREQ_</th>
+<th class="r header" scope="col">number_of_deaths_Mean</th>
+<th class="r header" scope="col">number_of_deaths_StdDev</th>
+<th class="r header" scope="col">number_of_deaths_Min</th>
+<th class="r header" scope="col">number_of_deaths_Max</th>
+<th class="r header" scope="col">number_of_deaths_N</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r rowheader" scope="row">1</th>
+<td class="data">Community Regional Medical Center ? Fresno</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">25.6875</td>
+<td class="r data">33.000441916</td>
+<td class="r data">0</td>
+<td class="r data">122</td>
+<td class="r data">16</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">2</th>
+<td class="data">Community Regional Medical Center – Fresno</td>
+<td class="data">1</td>
+<td class="r data">51</td>
+<td class="r data">21.522727273</td>
+<td class="r data">27.461168047</td>
+<td class="r data">0</td>
+<td class="r data">108</td>
+<td class="r data">44</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">3</th>
+<td class="data">Mercy San Juan Hospital</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">20.5</td>
+<td class="r data">26.863691011</td>
+<td class="r data">0</td>
+<td class="r data">112</td>
+<td class="r data">58</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">4</th>
+<td class="data">Palomar Health Downtown Campus</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">19.88</td>
+<td class="r data">20.128809691</td>
+<td class="r data">0</td>
+<td class="r data">88</td>
+<td class="r data">50</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">5</th>
+<td class="data">John Muir Medical Center – Walnut Creek Camp</td>
+<td class="data">1</td>
+<td class="r data">51</td>
+<td class="r data">17.361111111</td>
+<td class="r data">22.098678406</td>
+<td class="r data">0</td>
+<td class="r data">95</td>
+<td class="r data">36</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">6</th>
+<td class="data">Grossmont Hospital</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">16.5</td>
+<td class="r data">18.32575601</td>
+<td class="r data">0</td>
+<td class="r data">82</td>
+<td class="r data">58</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">7</th>
+<td class="data">Cedars Sinai Medical Center</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">16.194029851</td>
+<td class="r data">18.191938613</td>
+<td class="r data">0</td>
+<td class="r data">77</td>
+<td class="r data">67</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">8</th>
+<td class="data">Loma Linda University Medical Center</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">15.246153846</td>
+<td class="r data">20.513738361</td>
+<td class="r data">0</td>
+<td class="r data">97</td>
+<td class="r data">65</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">9</th>
+<td class="data">John Muir Medical Center ? Walnut Creek Campus</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">14.428571429</td>
+<td class="r data">20.379908227</td>
+<td class="r data">0</td>
+<td class="r data">73</td>
+<td class="r data">14</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">10</th>
+<td class="data">Desert Regional Medical Center</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">14.351851852</td>
+<td class="r data">15.579567421</td>
+<td class="r data">0</td>
+<td class="r data">67</td>
+<td class="r data">54</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">11</th>
+<td class="data">Kaiser Foundation Hospital ? Sacramento</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">14.333333333</td>
+<td class="r data">21.242365575</td>
+<td class="r data">0</td>
+<td class="r data">78</td>
+<td class="r data">15</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">12</th>
+<td class="data">Kaiser Foundation Hospital – Redwood City</td>
+<td class="data">1</td>
+<td class="r data">51</td>
+<td class="r data">14.15625</td>
+<td class="r data">15.606262959</td>
+<td class="r data">1</td>
+<td class="r data">58</td>
+<td class="r data">32</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">13</th>
+<td class="data">Regional Medical of San Jose</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">13.918367347</td>
+<td class="r data">13.614998982</td>
+<td class="r data">0</td>
+<td class="r data">56</td>
+<td class="r data">49</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">14</th>
+<td class="data">Eden Medical Center</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">13.804347826</td>
+<td class="r data">17.343099256</td>
+<td class="r data">0</td>
+<td class="r data">75</td>
+<td class="r data">46</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">15</th>
+<td class="data">Scripps Memorial Hospital ? La Jolla</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">13.785714286</td>
+<td class="r data">13.90726745</td>
+<td class="r data">0</td>
+<td class="r data">52</td>
+<td class="r data">14</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">16</th>
+<td class="data">Kaiser Foundation Hospital ? Fontana</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">13.764705882</td>
+<td class="r data">18.10914621</td>
+<td class="r data">0</td>
+<td class="r data">65</td>
+<td class="r data">17</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">17</th>
+<td class="data">Kaiser Foundation Hospital – Sacramento</td>
+<td class="data">1</td>
+<td class="r data">51</td>
+<td class="r data">13.642857143</td>
+<td class="r data">19.074720122</td>
+<td class="r data">0</td>
+<td class="r data">76</td>
+<td class="r data">42</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">18</th>
+<td class="data">Kaiser Foundation Hospital – Sunset</td>
+<td class="data">1</td>
+<td class="r data">51</td>
+<td class="r data">13.083333333</td>
+<td class="r data">16.521853141</td>
+<td class="r data">0</td>
+<td class="r data">69</td>
+<td class="r data">48</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">19</th>
+<td class="data">UC San Francisco Medical Center</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">12.893939394</td>
+<td class="r data">17.686264804</td>
+<td class="r data">0</td>
+<td class="r data">72</td>
+<td class="r data">66</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">20</th>
+<td class="data">Ronald Reagan UCLA Medical Center</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">12.818181818</td>
+<td class="r data">17.06990973</td>
+<td class="r data">0</td>
+<td class="r data">88</td>
+<td class="r data">66</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21</th>
+<td class="data">Kaiser Foundation Hospital ? Redwood City</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">12.769230769</td>
+<td class="r data">16.917219266</td>
+<td class="r data">0</td>
+<td class="r data">58</td>
+<td class="r data">13</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">22</th>
+<td class="data">Kaiser Foundation Hospital ? Sunset</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">12.764705882</td>
+<td class="r data">18.484890491</td>
+<td class="r data">0</td>
+<td class="r data">69</td>
+<td class="r data">17</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">23</th>
+<td class="data">Enloe Medical Center ? Esplanade</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">12.75</td>
+<td class="r data">11.466353942</td>
+<td class="r data">0</td>
+<td class="r data">33</td>
+<td class="r data">12</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">24</th>
+<td class="data">Saint Agnes Medical Center</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">12.490909091</td>
+<td class="r data">12.837838642</td>
+<td class="r data">0</td>
+<td class="r data">41</td>
+<td class="r data">55</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">25</th>
+<td class="data">Mercy General Hospital</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">12.352941176</td>
+<td class="r data">13.061123274</td>
+<td class="r data">0</td>
+<td class="r data">46</td>
+<td class="r data">51</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">26</th>
+<td class="data">Riverside Community Hospital</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">12.35</td>
+<td class="r data">15.061259092</td>
+<td class="r data">0</td>
+<td class="r data">61</td>
+<td class="r data">60</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">27</th>
+<td class="data">Santa Barbara Cottage Hospital</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">12.317460317</td>
+<td class="r data">16.972297539</td>
+<td class="r data">0</td>
+<td class="r data">74</td>
+<td class="r data">63</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">28</th>
+<td class="data">California Pacific Medical Center ? Davies Cam</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">12.2</td>
+<td class="r data">15.991664495</td>
+<td class="r data">0</td>
+<td class="r data">49</td>
+<td class="r data">10</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">29</th>
+<td class="data">Long Beach Memorial Medical Center</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">12.166666667</td>
+<td class="r data">12.575432773</td>
+<td class="r data">0</td>
+<td class="r data">60</td>
+<td class="r data">54</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">30</th>
+<td class="data">Kaiser Foundation Hospital – Fontana</td>
+<td class="data">1</td>
+<td class="r data">51</td>
+<td class="r data">12.136363636</td>
+<td class="r data">14.990835819</td>
+<td class="r data">0</td>
+<td class="r data">61</td>
+<td class="r data">44</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">31</th>
+<td class="data">UC Irvine Medical Center</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">12.088235294</td>
+<td class="r data">18.200980205</td>
+<td class="r data">0</td>
+<td class="r data">84</td>
+<td class="r data">68</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">32</th>
+<td class="data">Santa Rosa Memorial Hospital ? Montgomery</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">12</td>
+<td class="r data">11.532562595</td>
+<td class="r data">0</td>
+<td class="r data">39</td>
+<td class="r data">13</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">33</th>
+<td class="data">Kaweah Delta Medical Center</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">11.936170213</td>
+<td class="r data">10.411958541</td>
+<td class="r data">0</td>
+<td class="r data">43</td>
+<td class="r data">47</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">34</th>
+<td class="data">San Joaquin Community Hospital</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">11.784313725</td>
+<td class="r data">12.761369402</td>
+<td class="r data">0</td>
+<td class="r data">50</td>
+<td class="r data">51</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">35</th>
+<td class="data">Pomona Valley Hospital Medical Center</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">11.764705882</td>
+<td class="r data">11.908968444</td>
+<td class="r data">0</td>
+<td class="r data">47</td>
+<td class="r data">51</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">36</th>
+<td class="data">Providence Saint Joseph Medical Center</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">11.654545455</td>
+<td class="r data">12.324648867</td>
+<td class="r data">0</td>
+<td class="r data">55</td>
+<td class="r data">55</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">37</th>
+<td class="data">Doctors Medical Center</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">11.65</td>
+<td class="r data">12.553377559</td>
+<td class="r data">0</td>
+<td class="r data">47</td>
+<td class="r data">60</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">38</th>
+<td class="data">Scripps Mercy Hospital</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">11.633333333</td>
+<td class="r data">14.241222889</td>
+<td class="r data">0</td>
+<td class="r data">66</td>
+<td class="r data">60</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">39</th>
+<td class="data">Torrance Memorial Medical Center</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">11.578947368</td>
+<td class="r data">12.210866601</td>
+<td class="r data">0</td>
+<td class="r data">48</td>
+<td class="r data">57</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">40</th>
+<td class="data">Sharp Memorial Hospital</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">11.545454545</td>
+<td class="r data">12.772785755</td>
+<td class="r data">0</td>
+<td class="r data">54</td>
+<td class="r data">66</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">41</th>
+<td class="data">Saint Joseph?s Medical Center of Stockton</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">11.333333333</td>
+<td class="r data">11.854273893</td>
+<td class="r data">0</td>
+<td class="r data">39</td>
+<td class="r data">15</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">42</th>
+<td class="data">Scripps Memorial Hospital – La Jolla</td>
+<td class="data">1</td>
+<td class="r data">51</td>
+<td class="r data">11.119047619</td>
+<td class="r data">11.525586342</td>
+<td class="r data">0</td>
+<td class="r data">49</td>
+<td class="r data">42</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">43</th>
+<td class="data">Saint Jude Medical Center</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">11.115384615</td>
+<td class="r data">10.591624227</td>
+<td class="r data">0</td>
+<td class="r data">44</td>
+<td class="r data">52</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">44</th>
+<td class="data">Tri-City Medical Center – Oceanside</td>
+<td class="data">1</td>
+<td class="r data">51</td>
+<td class="r data">10.894736842</td>
+<td class="r data">11.845376504</td>
+<td class="r data">0</td>
+<td class="r data">45</td>
+<td class="r data">38</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">45</th>
+<td class="data">San Antonio Community Hospital</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">10.882352941</td>
+<td class="r data">10.362715974</td>
+<td class="r data">0</td>
+<td class="r data">46</td>
+<td class="r data">51</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">46</th>
+<td class="data">Kaiser Foundation Hospital ? San Diego</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">10.875</td>
+<td class="r data">12.489328778</td>
+<td class="r data">0</td>
+<td class="r data">37</td>
+<td class="r data">16</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">47</th>
+<td class="data">Good Samaritan Hospital ? San Jose</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">10.857142857</td>
+<td class="r data">10.257133674</td>
+<td class="r data">0</td>
+<td class="r data">34</td>
+<td class="r data">14</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">48</th>
+<td class="data">Los Angeles County/University of Southern Cali</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">10.767857143</td>
+<td class="r data">13.516308091</td>
+<td class="r data">0</td>
+<td class="r data">70</td>
+<td class="r data">56</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">49</th>
+<td class="data">Stanford Hospital</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">10.705882353</td>
+<td class="r data">12.826114712</td>
+<td class="r data">0</td>
+<td class="r data">62</td>
+<td class="r data">68</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">50</th>
+<td class="data">California Pacific Medical Center – Davies C</td>
+<td class="data">1</td>
+<td class="r data">51</td>
+<td class="r data">10.541666667</td>
+<td class="r data">11.519281253</td>
+<td class="r data">0</td>
+<td class="r data">38</td>
+<td class="r data">24</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">51</th>
+<td class="data">Good Samaritan Hospital – San Jose</td>
+<td class="data">1</td>
+<td class="r data">51</td>
+<td class="r data">10.486486486</td>
+<td class="r data">9.8928190051</td>
+<td class="r data">0</td>
+<td class="r data">42</td>
+<td class="r data">37</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">52</th>
+<td class="data">Antelope Valley Hospital</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">10.31147541</td>
+<td class="r data">10.005899899</td>
+<td class="r data">0</td>
+<td class="r data">39</td>
+<td class="r data">61</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">53</th>
+<td class="data">Eisenhower Medical Center</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">10.259259259</td>
+<td class="r data">10.76189151</td>
+<td class="r data">0</td>
+<td class="r data">48</td>
+<td class="r data">54</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">54</th>
+<td class="data">Kaiser Foundation Hospital ? Santa Clara</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">10.1875</td>
+<td class="r data">13.126150743</td>
+<td class="r data">0</td>
+<td class="r data">38</td>
+<td class="r data">16</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">55</th>
+<td class="data">Tri-City Medical Center ? Oceanside</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">10.153846154</td>
+<td class="r data">9.4854814835</td>
+<td class="r data">0</td>
+<td class="r data">32</td>
+<td class="r data">13</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">56</th>
+<td class="data">Mercy Medical Center – Redding</td>
+<td class="data">1</td>
+<td class="r data">51</td>
+<td class="r data">10.131578947</td>
+<td class="r data">9.54412527</td>
+<td class="r data">0</td>
+<td class="r data">37</td>
+<td class="r data">38</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">57</th>
+<td class="data">Lakewood Regional Medical Center</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">10.06</td>
+<td class="r data">10.114467311</td>
+<td class="r data">0</td>
+<td class="r data">45</td>
+<td class="r data">50</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">58</th>
+<td class="data">Mercy Medical Center ? Redding</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">10</td>
+<td class="r data">9.6396616602</td>
+<td class="r data">0</td>
+<td class="r data">31</td>
+<td class="r data">14</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">59</th>
+<td class="data">Saint John?s Regional Medical Center</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">10</td>
+<td class="r data">9.9079092985</td>
+<td class="r data">0</td>
+<td class="r data">33</td>
+<td class="r data">13</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">60</th>
+<td class="data">Mission Hospital Regional Medical Center</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">9.9259259259</td>
+<td class="r data">10.444555956</td>
+<td class="r data">0</td>
+<td class="r data">48</td>
+<td class="r data">54</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">61</th>
+<td class="data">Santa Rosa Memorial Hospital – Montgomery</td>
+<td class="data">1</td>
+<td class="r data">51</td>
+<td class="r data">9.7575757576</td>
+<td class="r data">8.9966323666</td>
+<td class="r data">0</td>
+<td class="r data">36</td>
+<td class="r data">33</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">62</th>
+<td class="data">Presbyterian Intercommunity Hospital</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">9.5535714286</td>
+<td class="r data">11.219981596</td>
+<td class="r data">0</td>
+<td class="r data">41</td>
+<td class="r data">56</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">63</th>
+<td class="data">UC San Diego Health System ? Hillcrest Medical</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">9.4705882353</td>
+<td class="r data">11.023370895</td>
+<td class="r data">0</td>
+<td class="r data">40</td>
+<td class="r data">17</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">64</th>
+<td class="data">California Hospital Medical Center ? Los Angel</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">9.4166666667</td>
+<td class="r data">12.471482622</td>
+<td class="r data">0</td>
+<td class="r data">41</td>
+<td class="r data">12</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">65</th>
+<td class="data">Enloe Medical Center – Esplanade</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">9.3333333333</td>
+<td class="r data">7.866307131</td>
+<td class="r data">0</td>
+<td class="r data">24</td>
+<td class="r data">12</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">66</th>
+<td class="data">Hoag Memorial Hospital Presbyterian</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">9.2985074627</td>
+<td class="r data">10.76190662</td>
+<td class="r data">0</td>
+<td class="r data">45</td>
+<td class="r data">67</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">67</th>
+<td class="data">Western Medical Center – Santa Ana</td>
+<td class="data">1</td>
+<td class="r data">34</td>
+<td class="r data">9.2272727273</td>
+<td class="r data">9.8991669596</td>
+<td class="r data">0</td>
+<td class="r data">42</td>
+<td class="r data">22</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">68</th>
+<td class="data">Kaiser Foundation Hospital – San Diego</td>
+<td class="data">1</td>
+<td class="r data">51</td>
+<td class="r data">9.1956521739</td>
+<td class="r data">11.148730999</td>
+<td class="r data">0</td>
+<td class="r data">47</td>
+<td class="r data">46</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">69</th>
+<td class="data">Sutter Roseville Medical Center</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">9.1818181818</td>
+<td class="r data">10.397811217</td>
+<td class="r data">0</td>
+<td class="r data">55</td>
+<td class="r data">55</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">70</th>
+<td class="data">Enloe Medical Center – Esplanade Campus</td>
+<td class="data">1</td>
+<td class="r data">34</td>
+<td class="r data">9.1739130435</td>
+<td class="r data">9.023465238</td>
+<td class="r data">0</td>
+<td class="r data">32</td>
+<td class="r data">23</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">71</th>
+<td class="data">Fountain Valley Regional Hospital and Medical</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">9.1272727273</td>
+<td class="r data">10.044446679</td>
+<td class="r data">0</td>
+<td class="r data">36</td>
+<td class="r data">55</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">72</th>
+<td class="data">Kaiser Foundation Hospital – Santa Clara</td>
+<td class="data">1</td>
+<td class="r data">51</td>
+<td class="r data">9.1219512195</td>
+<td class="r data">9.9428243521</td>
+<td class="r data">0</td>
+<td class="r data">34</td>
+<td class="r data">41</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">73</th>
+<td class="data">Washington Hospital ? Fremont</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">9.0769230769</td>
+<td class="r data">8.230649412</td>
+<td class="r data">0</td>
+<td class="r data">29</td>
+<td class="r data">13</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">74</th>
+<td class="data">UC Davis Medical Center</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">9.0441176471</td>
+<td class="r data">10.464486957</td>
+<td class="r data">0</td>
+<td class="r data">45</td>
+<td class="r data">68</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">75</th>
+<td class="data">Glendale Adventist Medical Center</td>
+<td class="data">1</td>
+<td class="r data">34</td>
+<td class="r data">9</td>
+<td class="r data">9.355065012</td>
+<td class="r data">0</td>
+<td class="r data">37</td>
+<td class="r data">30</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">76</th>
+<td class="data">Keck Hospital of University of Southern Califo</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">8.984375</td>
+<td class="r data">11.367584361</td>
+<td class="r data">0</td>
+<td class="r data">60</td>
+<td class="r data">64</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">77</th>
+<td class="data">Washington Hospital – Fremont</td>
+<td class="data">1</td>
+<td class="r data">51</td>
+<td class="r data">8.8648648649</td>
+<td class="r data">7.6563777415</td>
+<td class="r data">0</td>
+<td class="r data">30</td>
+<td class="r data">37</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">78</th>
+<td class="data">Saint Bernadine Medical Center</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">8.75</td>
+<td class="r data">11.442544218</td>
+<td class="r data">0</td>
+<td class="r data">39</td>
+<td class="r data">12</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">79</th>
+<td class="data">Sharp Chula Vista Medical Center</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">8.7</td>
+<td class="r data">7.7492593458</td>
+<td class="r data">0</td>
+<td class="r data">30</td>
+<td class="r data">50</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">80</th>
+<td class="data">Western Medical Center ? Santa Ana</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">8.5833333333</td>
+<td class="r data">9.727732926</td>
+<td class="r data">0</td>
+<td class="r data">34</td>
+<td class="r data">12</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">81</th>
+<td class="data">Bakersfield Memorial Hospital</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">8.5294117647</td>
+<td class="r data">7.3901365107</td>
+<td class="r data">0</td>
+<td class="r data">27</td>
+<td class="r data">51</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">82</th>
+<td class="data">UC San Diego Medical Center</td>
+<td class="data">1</td>
+<td class="r data">34</td>
+<td class="r data">8.4705882353</td>
+<td class="r data">10.275700357</td>
+<td class="r data">0</td>
+<td class="r data">39</td>
+<td class="r data">34</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">83</th>
+<td class="data">Memorial Hospital Medical Center ? Modesto</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">8.4666666667</td>
+<td class="r data">8.5009803356</td>
+<td class="r data">0</td>
+<td class="r data">26</td>
+<td class="r data">15</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">84</th>
+<td class="data">Saint Bernardine Medical Center</td>
+<td class="data">1</td>
+<td class="r data">51</td>
+<td class="r data">8.425</td>
+<td class="r data">9.5377455273</td>
+<td class="r data">0</td>
+<td class="r data">40</td>
+<td class="r data">40</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">85</th>
+<td class="data">Saddleback Memorial Medical Center</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">8.38</td>
+<td class="r data">9.0866351735</td>
+<td class="r data">0</td>
+<td class="r data">38</td>
+<td class="r data">50</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">86</th>
+<td class="data">Rideout Memorial Hospital</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">8.3148148148</td>
+<td class="r data">8.0957106604</td>
+<td class="r data">0</td>
+<td class="r data">28</td>
+<td class="r data">54</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">87</th>
+<td class="data">San Francisco General Hospital</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">8.1964285714</td>
+<td class="r data">9.9332675991</td>
+<td class="r data">0</td>
+<td class="r data">46</td>
+<td class="r data">56</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">88</th>
+<td class="data">Alta Bates Summit Medical Center – Summit Ca</td>
+<td class="data">1</td>
+<td class="r data">34</td>
+<td class="r data">8</td>
+<td class="r data">8.8317608663</td>
+<td class="r data">0</td>
+<td class="r data">28</td>
+<td class="r data">20</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">89</th>
+<td class="data">Alta Bates Summit Medical Center ? Summit Camp</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">7.9166666667</td>
+<td class="r data">6.4308677957</td>
+<td class="r data">0</td>
+<td class="r data">18</td>
+<td class="r data">12</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">90</th>
+<td class="data">Garfield Medical Center</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">7.875</td>
+<td class="r data">7.1239034244</td>
+<td class="r data">0</td>
+<td class="r data">34</td>
+<td class="r data">48</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">91</th>
+<td class="data">Methodist Hospital of Southern California</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">7.8301886792</td>
+<td class="r data">8.0759277844</td>
+<td class="r data">0</td>
+<td class="r data">29</td>
+<td class="r data">53</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">92</th>
+<td class="data">West Hills Hospital and Medical Center</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">7.756097561</td>
+<td class="r data">6.1187436938</td>
+<td class="r data">0</td>
+<td class="r data">23</td>
+<td class="r data">41</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">93</th>
+<td class="data">Kaiser Foundation Hospital – Roseville</td>
+<td class="data">1</td>
+<td class="r data">51</td>
+<td class="r data">7.7428571429</td>
+<td class="r data">7.4175580933</td>
+<td class="r data">0</td>
+<td class="r data">23</td>
+<td class="r data">35</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">94</th>
+<td class="data">Providence Little Company of Mary Medical Cent</td>
+<td class="data">1</td>
+<td class="r data">136</td>
+<td class="r data">7.7391304348</td>
+<td class="r data">10.719059297</td>
+<td class="r data">0</td>
+<td class="r data">53</td>
+<td class="r data">92</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">95</th>
+<td class="data">El Camino Hospital</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">7.6984126984</td>
+<td class="r data">8.9814053801</td>
+<td class="r data">0</td>
+<td class="r data">41</td>
+<td class="r data">63</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">96</th>
+<td class="data">Hollywood Presbyterian Medical Center</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">7.6666666667</td>
+<td class="r data">7.8369917517</td>
+<td class="r data">0</td>
+<td class="r data">31</td>
+<td class="r data">48</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">97</th>
+<td class="data">Alta Bates Summit Medical Center ? Alta Bates</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">7.5555555556</td>
+<td class="r data">5.6593089488</td>
+<td class="r data">0</td>
+<td class="r data">19</td>
+<td class="r data">9</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">98</th>
+<td class="data">UC San Diego Health System – Hillcrest Medic</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">7.5294117647</td>
+<td class="r data">8.6538838612</td>
+<td class="r data">0</td>
+<td class="r data">31</td>
+<td class="r data">17</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">99</th>
+<td class="data">Dominican Hospital – Santa Cruz/Soquel</td>
+<td class="data">1</td>
+<td class="r data">34</td>
+<td class="r data">7.5238095238</td>
+<td class="r data">5.9884810062</td>
+<td class="r data">0</td>
+<td class="r data">20</td>
+<td class="r data">21</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">100</th>
+<td class="data">Huntington Memorial Hospital</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">7.484375</td>
+<td class="r data">9.0220051752</td>
+<td class="r data">0</td>
+<td class="r data">44</td>
+<td class="r data">64</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">101</th>
+<td class="data">Memorial Hospital Medical Center – Modesto</td>
+<td class="data">1</td>
+<td class="r data">51</td>
+<td class="r data">7.4444444444</td>
+<td class="r data">8.1507265587</td>
+<td class="r data">0</td>
+<td class="r data">29</td>
+<td class="r data">45</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">102</th>
+<td class="data">Glendale Adventist Medical Center – Wilson T</td>
+<td class="data">1</td>
+<td class="r data">34</td>
+<td class="r data">7.4074074074</td>
+<td class="r data">7.59685795</td>
+<td class="r data">0</td>
+<td class="r data">26</td>
+<td class="r data">27</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">103</th>
+<td class="data">Saint John’s Regional Medical Center</td>
+<td class="data">1</td>
+<td class="r data">51</td>
+<td class="r data">7.3243243243</td>
+<td class="r data">7.5977118414</td>
+<td class="r data">0</td>
+<td class="r data">33</td>
+<td class="r data">37</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">104</th>
+<td class="data">Kaiser Foundation Hospital ? South Sacramento</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">7.2857142857</td>
+<td class="r data">7.4050769635</td>
+<td class="r data">0</td>
+<td class="r data">23</td>
+<td class="r data">14</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">105</th>
+<td class="data">Saint Joseph Hospital – Orange</td>
+<td class="data">1</td>
+<td class="r data">51</td>
+<td class="r data">7.2244897959</td>
+<td class="r data">8.0396551183</td>
+<td class="r data">0</td>
+<td class="r data">32</td>
+<td class="r data">49</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">106</th>
+<td class="data">Alta Bates Summit Medical Center – Alta Bate</td>
+<td class="data">1</td>
+<td class="r data">51</td>
+<td class="r data">7.1481481481</td>
+<td class="r data">7.6796619702</td>
+<td class="r data">0</td>
+<td class="r data">25</td>
+<td class="r data">27</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">107</th>
+<td class="data">Hemet Valley Medical Center</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">7.1315789474</td>
+<td class="r data">6.3932863969</td>
+<td class="r data">0</td>
+<td class="r data">22</td>
+<td class="r data">38</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">108</th>
+<td class="data">Seton Medical Center</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">7.06</td>
+<td class="r data">6.7170511022</td>
+<td class="r data">0</td>
+<td class="r data">32</td>
+<td class="r data">50</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">109</th>
+<td class="data">California Pacific Medical Center – Pacific</td>
+<td class="data">1</td>
+<td class="r data">51</td>
+<td class="r data">7.0425531915</td>
+<td class="r data">8.6952196932</td>
+<td class="r data">0</td>
+<td class="r data">35</td>
+<td class="r data">47</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">110</th>
+<td class="data">California Pacific Medical Center ? Pacific Ca</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">7</td>
+<td class="r data">8.3516465442</td>
+<td class="r data">0</td>
+<td class="r data">29</td>
+<td class="r data">17</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">111</th>
+<td class="data">John Muir Medical Center ? Concord Campus</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">7</td>
+<td class="r data">7.5678746866</td>
+<td class="r data">0</td>
+<td class="r data">21</td>
+<td class="r data">12</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">112</th>
+<td class="data">Saint Joseph Hospital ? Orange</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">6.9411764706</td>
+<td class="r data">8.7996490572</td>
+<td class="r data">0</td>
+<td class="r data">30</td>
+<td class="r data">17</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">113</th>
+<td class="data">Saint Joseph’s Medical Center of Stockton</td>
+<td class="data">1</td>
+<td class="r data">51</td>
+<td class="r data">6.8648648649</td>
+<td class="r data">10.331080836</td>
+<td class="r data">0</td>
+<td class="r data">46</td>
+<td class="r data">37</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">114</th>
+<td class="data">Centinela Hospital Medical Center</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">6.8571428571</td>
+<td class="r data">6.7113088639</td>
+<td class="r data">0</td>
+<td class="r data">28</td>
+<td class="r data">49</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">115</th>
+<td class="data">Saint Mary Regional Medical Center</td>
+<td class="data">1</td>
+<td class="r data">34</td>
+<td class="r data">6.8421052632</td>
+<td class="r data">7.433132717</td>
+<td class="r data">0</td>
+<td class="r data">26</td>
+<td class="r data">19</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">116</th>
+<td class="data">O’Connor Hospital – San Jose</td>
+<td class="data">1</td>
+<td class="r data">34</td>
+<td class="r data">6.7931034483</td>
+<td class="r data">6.7155433263</td>
+<td class="r data">0</td>
+<td class="r data">23</td>
+<td class="r data">29</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">117</th>
+<td class="data">White Memorial Medical Center</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">6.72</td>
+<td class="r data">6.7220016455</td>
+<td class="r data">0</td>
+<td class="r data">27</td>
+<td class="r data">50</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">118</th>
+<td class="data">Arrowhead Regional Medical Center</td>
+<td class="data">1</td>
+<td class="r data">68</td>
+<td class="r data">6.7169811321</td>
+<td class="r data">11.070364733</td>
+<td class="r data">0</td>
+<td class="r data">45</td>
+<td class="r data">53</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">119</th>
+<td class="data">Queen of the Valley Hospital – Napa</td>
+<td class="data">1</td>
+<td class="r data">34</td>
+<td class="r data">6.7142857143</td>
+<td class="r data">6.3335839549</td>
+<td class="r data">0</td>
+<td class="r data">23</td>
+<td class="r data">21</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">120</th>
+<td class="data">Kaiser Foundation Hospital ? Orange County ? A</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">6.7058823529</td>
+<td class="r data">8.2368433417</td>
+<td class="r data">0</td>
+<td class="r data">29</td>
+<td class="r data">17</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">121</th>
+<td class="data">Kaiser Foundation Hospital – Anaheim</td>
+<td class="data">1</td>
+<td class="r data">17</td>
+<td class="r data">6.6875</td>
+<td class="r data">7.2545962442</td>
+<td class="r data">0</td>
+<td class="r data">23</td>
+<td class="r data">16</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">122</th>
+<td class="data">John Muir Medical Center – Concord Campus</td>
+<td class="data">1</td>
+<td class="r data">51</td>
+<td class="r data">6.6666666667</td>
+<td class="r data">6.1981179939</td>
+<td class="r data">0</td>
+<td class="r data">20</td>
+<td class="r data">33</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">123</th>
+<td class="data">Mercy Medical Center – Merced</td>
+<td class="data">1</td>
+<td class="r data">51</td>
+<td class="r data">6.6666666667</td>
+<td class="r data">5.1022870689</td>
+<td class="r data">0</td>
+<td class="r data">18</td>
+<td class="r data">21</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">124</th>
+</article>
+</section>
+</div>
+</body>
+</html>
