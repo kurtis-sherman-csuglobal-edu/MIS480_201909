@@ -6,3 +6,6 @@
 
 [Bubble Map Mortality Rate by Lat Long-results](http://htmlpreview.github.io/?https://github.com/kurtis-sherman-csuglobal-edu/MIS480_201909/blob/master/Module5/Bubble%20Map-results.html)
 
+[One-Way ANOVA-results](http://htmlpreview.github.io/?https://github.com/kurtis-sherman-csuglobal-edu/MIS480_201909/blob/master/Module5/One-Way%20ANOVA-results.html)
+
+
