@@ -8,4 +8,5 @@
 
 [One-Way ANOVA-results](http://htmlpreview.github.io/?https://github.com/kurtis-sherman-csuglobal-edu/MIS480_201909/blob/master/Module5/One-Way%20ANOVA-results.html)
 
+[Analysis of Covariance-results](http://htmlpreview.github.io/?https://github.com/kurtis-sherman-csuglobal-edu/MIS480_201909/blob/master/Module5/Analysis%20of%20Covariance-results.html)
 
